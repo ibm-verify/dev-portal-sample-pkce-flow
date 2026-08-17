@@ -1,4 +1,6 @@
-const redirectUri = new URL(process.env.REDIRECT_URI).pathname;
+const redirectUri = process.env.REDIRECT_URI
+  ? new URL(process.env.REDIRECT_URI).pathname
+  : "/callback";
 
 module.exports = {
     async redirects() {
