@@ -5,7 +5,7 @@ export default defineConfig({
   timeout: 60_000,
   retries: 0,
   workers: 1,
-  reporter: [["list"], ["html", { open: "never" }]],
+  reporter: process.env.CI ? [["list"]] : [["list"], ["html", { open: "never" }]],
 
   use: {
     baseURL: process.env.APP_URL ?? "http://localhost:3000",
